@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://cs184-jello-world.github.io///sitemap.xml
+Sitemap: https://blackfeather0x1.github.io/cs184-final-website/sitemap.xml
