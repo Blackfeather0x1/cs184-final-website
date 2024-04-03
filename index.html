@@ -106,123 +106,63 @@
     <!-- Content -->
     <div class="container mt-5">
       <div class="page">
-  <h1 id="jello-world">Jello, World!</h1>
+  <h1 id="cloth-simulation">Cloth Simulation</h1>
 
-<p>Team Members: Noah Adhikari, Jedi Tsang, Johnny Lu, Allen Gu</p>
-
-<p><img src="https://media.tenor.com/hiF1rq8rc2AAAAAd/gelatin-wiggle.gif" alt="jello-jiggle" style="display:block; margin-left: auto; margin-right: auto; width:50%;"></p>
+<p>Team Members: Lihao Zheng, Zheng Guo, Martin Guo, Alex Nguyen Ngoc</p>
 
 <h3 id="summary">Summary</h3>
 
-<p>We hope to replicate jello through softbody simulation and track its interaction
-with light during collisions and deformations. If time permits, we would also
-like to include more interesting rigid-body collisions such as blades or
-bullets.</p>
+<p>This project will develop a straightforward real-time hair simulation using GPU shaders, providing a basic yet effective representation of hair physics suitable simple interactive applications. Building on ShaderToy examples, the goal is to create an accessible model for demonstrating hair dynamics and environmental interactions.</p>
 
 <h3 id="problem-description">Problem Description</h3>
 
-<p>In this project, we strive to create an accurate and realistic simulation of
-jello, a task that comes with many challenges in rendering and physical
-simulation.</p>
-
-<p><strong>Why it’s important:</strong> Simulating jello-like substances extends to many
-different materials that combine both non-rigid and rigid bodies. With our
-approach, we would expand the capabilities of our simulation and possibly be
-able to model many other materials as well.</p>
-
-<p><strong>Challenges:</strong></p>
-<ol>
-  <li>Rendering a translucent object to look like jello</li>
-  <li>Implementing a technique to simulate jello</li>
-  <li>Handling interactions and collisions with other rigid objects (or even
-fluids)</li>
-  <li>To fully simulate jello, we’d want to be capable of modeling how it breaks
-apart under high stress</li>
-</ol>
-
-<p><strong>Ideas:</strong> For rendering, we might extend our ray tracer from Project 3 or look into more optimized renderers. For simulation, we are looking into <a href="https://en.wikipedia.org/wiki/Material_point_method" rel="external nofollow noopener" target="_blank">material point methods (MPMs)</a> and how to simulate multi-phase materials. Another approach might be to extend our mass-spring mesh models, though this wouldn’t be able to simulate jello breaking.</p>
+<p>Real-time hair simulation poses a challenge due to the fine, complex nature of hair dynamics and the intensive computational power required to animate numerous strands simultaneously. The main problem lies in achieving an interactive system that can provide both the desired realism and performance. Current solutions typically fall short in interactive contexts, such as gaming or virtual environments, where user input requires immediate visual feedback. Our approach will apply proven rendering methods to a GPU-based simulation framework, thus providing the computational power needed for the complex calculations involved in simulating hair in motion, ensuring both responsiveness and visual authenticity in real-time applications.</p>
 
 <h3 id="goals-and-deliverables">Goals and Deliverables</h3>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4n5AfHYST6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/4n5AfHYST6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
-<p>Main Deliverable: Our goal is to develop a jello simulation to produce videos of
-jello-like substances interacting with each other and rigid objects. The
-substances should realistically bounce and deform, and we also intend to support
-translucent jello so the shading and refraction of light through the jello
-should be realistic as well. We will test with different degrees of damping
-which will affect how rigid or stiff the jello is.</p>
+<p>The primary goal of this project is to develop a real-time, interactive hair simulation that utilizes GPU shaders for efficient computation and rendering. We aim to extend the principles from a basic cloth simulation (as demonstrated in the provided ShaderToy demo) to the more complex domain of hair physics.</p>
 
-<p>This should be achievable since it will involve many concepts we’ve learning in
-class like spring systems, external forces and motion simulation, as well as
-light refraction and other ray tracing concepts.</p>
+<p><strong>Baseline Deliverables:</strong></p>
 
-<p>Intended goals:</p>
 <ol>
-  <li>(baseline) Opaque jello dropped onto rigid floor</li>
-  <li>(expected) Translucency</li>
-  <li>(expected) Interactions with other bodies (soft and/or rigid)</li>
-  <li>(stretch) Simulating more interesting interactions (e.g. knives, needles, or
-bullets)</li>
-  <li>(stretch) Optimizing simulation for faster rendering</li>
+  <li>Hair Physics Simulation: Create a real-time hair simulation model on the GPU, starting from the ShaderToy cloth simulation example. The simulation will accurately model hair behavior, including strand-strand interaction and reaction to external forces such as gravity. An example of the type of simulation we aim to achieve can be seen in this demo video.</li>
+  <li>Environmental Interaction: Integrate environmental effects such as wind to showcase how simulated hair interacts with external forces, making the simulation more dynamic and realistic.</li>
+  <li>Object Interaction: Replace the sphere in the ShaderToy demo with a more complex object that interacts with hair, such as a comb. This will demonstrate the hair’s response to collisions and forces exerted by everyday grooming tools.</li>
 </ol>
 
-<p>A minimum for success is the baseline goal of a simulation of an opaque softbody
-jello-like object dropped onto a rigid floor, with realistic bouncing and
-deformation. Goals 2 and 3 are what we plan to achieve, making the simulation
-more realistic by including translucent jello and collisions with non-floor
-objects. If we are running ahead of schedule, our stretch goals are to simulate
-more interesting physical interactions and improve the performance of our
-simulations.</p>
+<p><strong>Aspirational Deliverables:</strong></p>
+<ol>
+  <li>Advanced Rendering Techniques: Implement advanced hair rendering techniques based on the “Hair rendering project”, enhancing the visual realism of the simulation. This will include shaders for hair shading, self-shadowing, and possibly subsurface scattering for a more lifelike appearance.</li>
+  <li>Interactive Demo: Develop an interactive demo that can be shared online, allowing users to adjust parameters such as hair length, color, stiffness, and wind strength to see the effects in real time.</li>
+</ol>
 
-<p>Quantifiable metrics are difficult to define for this project, but we have at
-least one: seconds per frame for a given render. Quality will mostly be
-judged by the realism of the simulation.</p>
+<p><strong>Quality/Performance Measurement:</strong></p>
+
+<p>To measure the quality and performance of the hair simulation, we will:</p>
+<ul>
+  <li>Use frame rate as a performance metric, aiming for a smooth experience (e.g., 60 frames per second) to ensure the simulation runs in real time.</li>
+  <li>Implement a benchmark comparing the simulation’s performance with and without GPU acceleration to quantify the speedup achieved.
+Evaluate the visual realism qualitatively through user feedback and comparison with high-quality reference images of real hair under similar environmental conditions.</li>
+</ul>
+
+<p><strong>Evaluation Plan:</strong></p>
+
+<p>The success of the project will be evaluated by the ability to:
+Run the hair simulation interactively in real time on a standard modern GPU.
+Render the hair with a high degree of visual fidelity as compared to the previous project’s rendering techniques.
+Introduce secondary elements (comb and wind) that interact with the hair in a believable manner, enhancing the overall simulation realism.
+We acknowledge that precise target metrics may be challenging to define at this early stage; however, we will develop these as the project progresses, using the initial benchmarks as a baseline.</p>
 
 <h3 id="schedule">Schedule</h3>
 
-<p>Week one:</p>
-<ul>
-  <li>Basic rendering code with no physics
-    <ul>
-      <li>Opaque raytracing</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Week two:</p>
-<ul>
-  <li>Develop jello model</li>
-  <li>Add physics simulation i.e. gravity</li>
-  <li>Collison detection</li>
-  <li>Milestone deliverables</li>
-</ul>
-
-<p>Week three:</p>
-<ul>
-  <li>Deformations</li>
-  <li>Refraction</li>
-</ul>
-
-<p>Week four:</p>
-<ul>
-  <li>Stretch goals</li>
-</ul>
+<p>To be done.</p>
 
 <h3 id="resources">Resources</h3>
 
-<ul>
-  <li><a href="https://www.cs.cmu.edu/~barbic/jellocube_bw.pdf" rel="external nofollow noopener" target="_blank">Jello cube animation case study</a></li>
-  <li><a href="https://www.cs.rpi.edu/~cutler/classes/advancedgraphics/S10/final_projects/wellington_boeckel.pdf" rel="external nofollow noopener" target="_blank">Paper describing point mass spring system to represent jello structure</a></li>
-  <li>Material Point Methods
-    <ul>
-      <li>
-<a href="https://yuanming.taichi.graphics/publication/2018-mlsmpm/mls-mpm-cpic.pdf" rel="external nofollow noopener" target="_blank">A Moving Least Squares Material Point Method with Displacement Discontinuity and Two-Way Rigid Body Coupling</a> - (<a href="https://www.youtube.com/watch?v=9M18rc9-VWU" rel="external nofollow noopener" target="_blank">video</a>)</li>
-      <li>
-<a href="https://www.math.ucla.edu/~jteran/papers/HGGWJT19.pdf" rel="external nofollow noopener" target="_blank">A Hybrid Material Point Method for Frictional Contact with Diverse Materials</a> - (<a href="https://www.youtube.com/watch?v=54YvCE8_7lM" rel="external nofollow noopener" target="_blank">video</a>)</li>
-    </ul>
-  </li>
-</ul>
+<p>To be done.</p>
+
 
 </div>
 
