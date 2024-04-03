@@ -4,7 +4,7 @@ title: proposal
 permalink: /
 ---
 
-# Cloth Simulation
+# Hair Simulation
 
 Team Members: Lihao Zheng, Zheng Guo, Martin Guo, Alex Nguyen Ngoc
 
