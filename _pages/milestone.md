@@ -4,7 +4,7 @@ title: milestone
 permalink: /milestone
 ---
 
-# Milestone
+<!-- # Milestone
 
 Jello, again!
 
@@ -38,4 +38,4 @@ want to improve on for our final submission.
 
 Also, our goal is to eventually try using a material point method or other more complicated method to render the
 Jello and support collisions with rigid bodies. For example, we want to simulate a bullet striking through
-the Jello cube. 
+the Jello cube.  -->

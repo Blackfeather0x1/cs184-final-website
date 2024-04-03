@@ -5,7 +5,7 @@ permalink: /writeup
 mathjax: true
 ---
 
-# Final Writeup
+<!-- # Final Writeup
 
 [Slides](https://docs.google.com/presentation/d/1ozbsNFH_Sg-njZ_wx_bAXcgFaxxcuOdkhU3FMj_iLkg/edit?usp=sharing)
 
@@ -71,7 +71,7 @@ We also played around with the spring constant to manipulate the rigidity of the
 From a high level, other than referencing documentation on how certain built in tools for Unity worked, we used trial and error when building
 - ClothSim served as the basis for the way we went about building the mass-spring system, as well as the springs we attached to the cube object. 
 = To translate the springs from 2-D to 3-D for the cube object specifically, we referenced slides by [Carnegie Mellon University’s Fall 2002 offering of Computer Graphics 15-462](https://www.cs.cmu.edu/~barbic/jellocube_bw.pdf)
-- [Unity documentation on how the mesh class works](https://docs.unity3d.com/Manual/UsingtheMeshClass.html) so we know the appropriate information to supply when rendering the mesh.
+- [Unity documentation on how the mesh class works](https://docs.unity3d.com/Manual/UsingtheMeshClass.html) so we know the appropriate information to supply when rendering the mesh. -->
 
 
 
