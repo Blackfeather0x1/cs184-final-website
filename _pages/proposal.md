@@ -61,7 +61,7 @@ Week 3: realize basic physical simulation of hair.
 Week 4: try to bring it on GPU and test the results.
 
 ### Resources
-[Andrew et al., 2008: A Mass Spring Model for Hair Simulation](https://physbam.stanford.edu/~mlentine/images/hair.pdf) 
+[Selle et al., 2008: A Mass Spring Model for Hair Simulation](https://physbam.stanford.edu/~mlentine/images/hair.pdf) 
 
 [Yao Lyu, 2016: Hair Simulation Based on Mass Spring System](https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc17/05/1.pdf)
 
