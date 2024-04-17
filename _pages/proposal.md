@@ -4,7 +4,7 @@ title: proposal
 permalink: /
 ---
 
-# Hair Simulation
+# Real-Time Hair Simulation using GPU shader/CUDA
 
 Team Members: Lihao Zheng, Zheng Guo, Martin Guo, Alex Nguyen Ngoc
 
@@ -52,10 +52,13 @@ We acknowledge that precise target metrics may be challenging to define at this 
 
 ### Schedule
 
-To be done.
+Week 1: search for papers and develop a physical model of hair.
+Week 2: try to successfully render hair based on other’s work.
+Week 3: realize basic physical simulation of hair.
+Week 4: try to bring it on GPU and test the results.
+
 
 ### Resources
 
-To be done.
 
 
