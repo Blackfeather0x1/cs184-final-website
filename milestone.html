@@ -149,21 +149,22 @@ the Jello cube.  -->
 
 <p>In our formulation, hair is modeled as a serial succession of point masses, connected with springs. First, edge springs are between every 2 neighboring particles. Second, bending springs connect every particle to other particles 2 edges away from it. Third, torsion springs connects every particle to other particles 3 edges away from it. Fourth, for every 4 consecutive particles, the above springs form a tetrahedron. Between every pair of opposite edges of the tetrahedron, the distance between the straight lines are calculated, and a spring-like repelling force is exerted on the edges according to the distance.</p>
 
-<p>The elastic force on the spring between 2 particles $p_1, p_2$ exerted on particle $p_1$ is</p>
+<p>The elastic force on the spring between 2 particles \(p_1, p_2\) exerted on particle \(p_1\) is</p>
 
 \[F_{12} = k_s \frac{\|p_2 - p_1\| - l_0}{\|p_2 - p_1\|} (p_2 - p_1)\]
 
-<p>where $k_s$ is the spring constant and $l_0$ is the rest length. Note that the numerator in the fraction could be negative, in which case the force is in the opposite direction.</p>
+<p>where \(k_s\) is the spring constant and \(l_0\) is the rest length. Note that the numerator in the fraction could be negative, in which case the force is in the opposite direction.</p>
 
-<p>The elastic force on the tetrahedral altitude spring between edges $p_1p_2$ and $p_3p_4$ exerted on $p_1p_2$ is</p>
+<p>The elastic force on the tetrahedral altitude spring between edges \(p_1p_2\) and \(p_3p_4\) exerted on \(p_1p_2\) is</p>
 
 \[F_{12-34} = k_s \frac{\|n\| - l_0}{\|n\|} n\]
 
-<p>where \(n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}\)is the directed distance from edge $p_1p_2$ to $p_3p_4$, where $a = p_2 - p_1$, $b = p_4 - p_3$, $c = p_3 - p_1$. $k_s$  and $l_0$ have the same meaning as above.</p>
+<p>where \(n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}\)is the directed distance from edge \(p_1p_2\) to \(p_3p_4\), where \(a = p_2 - p_1\), \(b = p_4 - p_3\), \(c = p_3 - p_1\). \(k_s\)  and \(l_0\) have the same meaning as above.</p>
 
 <h2 id="references">References:</h2>
-<p><a href="https://physbam.stanford.edu/~mlentine/images/hair.pdf" rel="external nofollow noopener" target="_blank">Andrew et al., 2008: A Mass Spring Model for Hair Simulation</a> 
-<a href="https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc17/05/1.pdf" rel="external nofollow noopener" target="_blank">Yao Lyu, 2016: Hair Simulation Based on Mass Spring System</a></p>
+<p><a href="https://physbam.stanford.edu/~mlentine/images/hair.pdf" rel="external nofollow noopener" target="_blank">Andrew et al., 2008: A Mass Spring Model for Hair Simulation</a></p>
+
+<p><a href="https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc17/05/1.pdf" rel="external nofollow noopener" target="_blank">Yao Lyu, 2016: Hair Simulation Based on Mass Spring System</a></p>
 
 </div>
 
