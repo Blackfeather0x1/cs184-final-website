@@ -53,10 +53,12 @@ We acknowledge that precise target metrics may be challenging to define at this 
 ### Schedule
 
 Week 1: search for papers and develop a physical model of hair.
-Week 2: try to successfully render hair based on other’s work.
-Week 3: realize basic physical simulation of hair.
-Week 4: try to bring it on GPU and test the results.
 
+Week 2: try to successfully render hair based on other’s work.
+
+Week 3: realize basic physical simulation of hair.
+
+Week 4: try to bring it on GPU and test the results.
 
 ### Resources
 
