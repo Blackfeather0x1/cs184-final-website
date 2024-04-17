@@ -47,18 +47,19 @@ We originally found demos on ShaderToy rendering hair-like structures based on K
 
 In our formulation, hair is modeled as a serial succession of point masses, connected with springs. First, edge springs are between every 2 neighboring particles. Second, bending springs connect every particle to other particles 2 edges away from it. Third, torsion springs connects every particle to other particles 3 edges away from it. Fourth, for every 4 consecutive particles, the above springs form a tetrahedron. Between every pair of opposite edges of the tetrahedron, the distance between the straight lines are calculated, and a spring-like repelling force is exerted on the edges according to the distance.
 
-The elastic force on the spring between 2 particles $p_1, p_2$ exerted on particle $p_1$ is
+The elastic force on the spring between 2 particles $$p_1, p_2$$ exerted on particle $$p_1$$ is
 
 $$ F_{12} = k_s \frac{\|p_2 - p_1\| - l_0}{\|p_2 - p_1\|} (p_2 - p_1) $$
 
-where $k_s$ is the spring constant and $l_0$ is the rest length. Note that the numerator in the fraction could be negative, in which case the force is in the opposite direction.
+where $$k_s$$ is the spring constant and $$l_0$$ is the rest length. Note that the numerator in the fraction could be negative, in which case the force is in the opposite direction.
 
-The elastic force on the tetrahedral altitude spring between edges $p_1p_2$ and $p_3p_4$ exerted on $p_1p_2$ is
+The elastic force on the tetrahedral altitude spring between edges $$p_1p_2$$ and $$p_3p_4$$ exerted on $$p_1p_2$$ is
 
  $$F_{12-34} = k_s \frac{\|n\| - l_0}{\|n\|} n $$
 
-where $$n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}$$is the directed distance from edge $p_1p_2$ to $p_3p_4$, where $a = p_2 - p_1$, $b = p_4 - p_3$, $c = p_3 - p_1$. $k_s$  and $l_0$ have the same meaning as above.
+where $$n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}$$is the directed distance from edge $$p_1p_2$$ to $$p_3p_4$$, where $$a = p_2 - p_1$$, $$b = p_4 - p_3$$, $$c = p_3 - p_1$$. $$k_s$$  and $$l_0$$ have the same meaning as above.
 
 ## References: 
 [Andrew et al., 2008: A Mass Spring Model for Hair Simulation](https://physbam.stanford.edu/~mlentine/images/hair.pdf) 
+
 [Yao Lyu, 2016: Hair Simulation Based on Mass Spring System](https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc17/05/1.pdf)
