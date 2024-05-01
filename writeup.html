@@ -209,7 +209,7 @@ From a high level, other than referencing documentation on how certain built in 
 <strong>Tetrahedral Altitude Springs</strong>: Unique to our model, these springs form for every group of four consecutive particles, creating a tetrahedral structure. They exert a repelling force between the opposite edges of the tetrahedron, effectively preventing the collapse of the hair’s volume when compressed.</li>
 </ol>
 
-<p><img src="https://i.ibb.co/71jWkd2/spring-model.png" alt="spring-model" style="display:block; margin-left: auto; margin-right: auto; width:50%;"></p>
+<p><img src="https://i.ibb.co/71jWkd2/spring-model.png" alt="spring-model" style="display:block; margin-left: auto; margin-right: auto; width:75%;"></p>
 
 <p><strong>Elastic force Mathematical calculation:</strong></p>
 
@@ -228,8 +228,6 @@ From a high level, other than referencing documentation on how certain built in 
 <p>where \(n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}\)is the directed distance from edge \(p_1p_2\) to \(p_3p_4\), where \(a = p_2 - p_1\), \(b = p_4 - p_3\), \(c = p_3 - p_1\). \(k_s\)  and \(l_0\) have the same meaning as above.</p>
 
 <p><strong>Challenges:</strong></p>
-
-<p>Some bug we met, then how we solve it?</p>
 
 <ul>
   <li>Limited computation resource: we didn’t have access to a GPU, so all of the simulations were run on an M1 chip Mac computer. This limits the amount of hair particles we can simulate, leading to a balancing act between hair length, resolution (number of springs), and number of hair strands. To produce a runnable simulation, we had to decrease the amount of hair strands by lowering the mesh resolution of the head, and selecting only a fraction of the head area as hair roots. (hence why or model is balding)</li>
