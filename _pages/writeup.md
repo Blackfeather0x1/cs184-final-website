@@ -128,12 +128,12 @@ In our project's final deliverable, we have successfully demonstrated a realisti
 
 | 75 Strands | 300 Strands Front |
 | --- | --- |
-| ![75strands](https://i.ibb.co/cxxybK3/75-strands.gif){:style="display:block; margin-right: auto; width:90%;"} | ![300strandsF](https://i.ibb.co/41jf4cZ/300-strands-front.gif){:style="display:block; margin-right: auto; width:90%;"} |
+| ![75strands](https://i.ibb.co/cxxybK3/75-strands.gif){:style="display:block; margin-right: auto; width:76%;"} | ![300strandsF](https://i.ibb.co/41jf4cZ/300-strands-front.gif){:style="display:block; margin-right: auto; width:90%;"} |
 
 
 | 300 Strands Back | 500 Strands |
 | --- | --- |
-| ![300strandsB](https://i.ibb.co/VvjjhtL/300-strands-back.gif){:style="display:block; margin-right: auto; width:90%;"} | ![500strands](https://i.ibb.co/02TWL2j/500-strands.gif){:style="display:block; margin-right: auto; width:90%;"} |
+| ![300strandsB](https://i.ibb.co/VvjjhtL/300-strands-back.gif){:style="display:block; margin-right: auto; width:75%;"} | ![500strands](https://i.ibb.co/02TWL2j/500-strands.gif){:style="display:block; margin-right: auto; width:83%;"} |
 
 
 Video
