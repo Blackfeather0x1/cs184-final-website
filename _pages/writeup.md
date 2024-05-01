@@ -136,7 +136,8 @@ In our project's final deliverable, we have successfully demonstrated a realisti
 | ![300strandsB](https://i.ibb.co/VvjjhtL/300-strands-back.gif){:style="display:block; margin-right: auto; width:75%;"} | ![500strands](https://i.ibb.co/02TWL2j/500-strands.gif){:style="display:block; margin-right: auto; width:83%;"} |
 
 
-Video
+The video for illustraing our work:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F9GC9EID4c8?si=_z3QGn9R510f3qma" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## References:
 [Selle et al., 2008: A Mass Spring Model for Hair Simulation](https://physbam.stanford.edu/~mlentine/images/hair.pdf) 
