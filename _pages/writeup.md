@@ -126,8 +126,17 @@ Throughout the project, our team learned valuable lessons in computational physi
 
 In our project's final deliverable, we have successfully demonstrated a realistic simulation of hair influenced by gravity. The video showcases a model consisting of 500 hair strands(Can be modified), each rendered with high fidelity, gradually moving downwards as gravity takes effect. This visualization not only confirms the functional accuracy of our hair physical model but also highlights the effectiveness of the multi-spring system in providing natural dynamics and movement. Each strand of hair behaves in accordance with the established physical parameters, including elasticity, bending resistance, and volume preservation, which are governed by the meticulously implemented edge, bending, torsion, and tetrahedral altitude springs. The simulation effectively mirrors the natural flow and behavior of hair, offering a compelling visual testament to the robustness and precision of our computational model in replicating complex real-world phenomena.
 
-Image and video here:
-TBD
+| 75 Strands | 300 Strands Front |
+| --- | --- |
+| ![75strands](https://i.ibb.co/cxxybK3/75-strands.gif){:style="display:block; margin-right: auto; width:90%;"} | ![300strandsF](https://i.ibb.co/41jf4cZ/300-strands-front.gif){:style="display:block; margin-right: auto; width:90%;"} |
+
+
+| 300 Strands Back | 500 Strands |
+| --- | --- |
+| ![300strandsB](https://i.ibb.co/VvjjhtL/300-strands-back.gif){:style="display:block; margin-right: auto; width:90%;"} | ![500strands](https://i.ibb.co/02TWL2j/500-strands.gif){:style="display:block; margin-right: auto; width:90%;"} |
+
+
+Video
 
 ## References:
 [Selle et al., 2008: A Mass Spring Model for Hair Simulation](https://physbam.stanford.edu/~mlentine/images/hair.pdf) 
