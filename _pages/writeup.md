@@ -95,7 +95,7 @@ Each spring type used in the hair physical model:
 3. **Torsion Springs**: Torsion springs link each particle to others three edges away, providing resistance to twisting motions around the hair strand’s length, thus maintaining the integrity of the hair’s twist along its axis.
 4. **Tetrahedral Altitude Springs**: Unique to our model, these springs form for every group of four consecutive particles, creating a tetrahedral structure. They exert a repelling force between the opposite edges of the tetrahedron, effectively preventing the collapse of the hair’s volume when compressed.
 
-![spring-model](https://i.ibb.co/71jWkd2/spring-model.png){:style="display:block; margin-left: auto; margin-right: auto; width:50%;"} 
+![spring-model](https://i.ibb.co/71jWkd2/spring-model.png){:style="display:block; margin-left: auto; margin-right: auto; width:75%;"} 
 
 
 **Elastic force Mathematical calculation:**
@@ -115,8 +115,6 @@ The elastic force on the tetrahedral altitude spring between edges $$p_1p_2$$ an
 where $$n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}$$is the directed distance from edge $$p_1p_2$$ to $$p_3p_4$$, where $$a = p_2 - p_1$$, $$b = p_4 - p_3$$, $$c = p_3 - p_1$$. $$k_s$$  and $$l_0$$ have the same meaning as above.
 
 **Challenges:**
-
-Some bug we met, then how we solve it?
 
 - Limited computation resource: we didn’t have access to a GPU, so all of the simulations were run on an M1 chip Mac computer. This limits the amount of hair particles we can simulate, leading to a balancing act between hair length, resolution (number of springs), and number of hair strands. To produce a runnable simulation, we had to decrease the amount of hair strands by lowering the mesh resolution of the head, and selecting only a fraction of the head area as hair roots. (hence why or model is balding)
 - Lack of reference for the hair spring parameters: the original paper illustrates the physics behind the mass-spring system that underlies the hair, but provided no reference point for the scale and relative ratio between the spring parameters. These values were determined by trial and error.
