@@ -181,6 +181,85 @@ From a high level, other than referencing documentation on how certain built in 
 = To translate the springs from 2-D to 3-D for the cube object specifically, we referenced slides by [Carnegie Mellon University’s Fall 2002 offering of Computer Graphics 15-462](https://www.cs.cmu.edu/~barbic/jellocube_bw.pdf)
 - [Unity documentation on how the mesh class works](https://docs.unity3d.com/Manual/UsingtheMeshClass.html) so we know the appropriate information to supply when rendering the mesh. -->
 
+<p>Our project focused on enhancing the realism of hair simulation in digital environments by advancing a mass-spring model based physical simulation(resource here). Initially, our efforts centered on adapting an existing code framework from <a href="https://github.com/swyngaard/imicu" rel="external nofollow noopener" target="_blank">https://github.com/swyngaard/imicu</a>, which we modified to fit the specific requirements of our simulation. Key developments included the integration of a static head model that anchors the hair particles, providing a realistic base from which the hair dynamics could be accurately simulated. Additionally, we incorporated gravity into the model to simulate the natural downward movement of hair as well as fine-tuning physical constants that parametrize the hair’s behavior. Finally, a collision detection algorithm, built upon and accelerated by a k-d tree hierarchy, was added, which enabled more realistic hair-head interactions. The result is a visually compelling simulation where hair not only adheres naturally to the head model but also moves believably under the influence of gravity. This project implements some of the current progress in the field of hair simulation, suggesting a promising direction for future research in achieving even more lifelike animations in computer graphics.</p>
+
+<h2 id="technical-approach">Technical approach</h2>
+
+<p>In developing our simulation, we built upon the theoretical framework established by Andrew et al. (2008) and Yao Lyu (2016), who modeled hair as a series of point masses connected by various types of springs. Our approach, however, diverged from these references in several key aspects.</p>
+
+<p>First, while the foundational works employed uniform spring constants across the model, we introduced variable spring constants to account for the heterogeneous properties of hair. This decision was motivated by the observation that hair exhibits different elastic properties along its length due to varying levels of damage and treatment.</p>
+
+<p>To implement this, we developed an algorithm that adjusts the spring constants based on the input data derived from microscopic images of hair strands. The algorithm categorizes each segment of the hair strand into one of three categories—healthy, damaged, and treated—and assigns spring constants accordingly. This enhancement aimed to bring a higher degree of realism to the simulation by capturing the non-uniform behavior of hair.</p>
+
+<p>In the “hair.cpp” file, we implement an algorithm for realistic hair simulation and rendering in computer graphics. Specifically, it uses a physically-based approach to model hair fibers as a series of connected particles that represent segments of hair strands. The algorithm employs principles from continuum mechanics to describe the motion and interaction of these particles under various forces, such as gravity and wind (the latter to be implemented in future work). Additionally, it includes a collision detection mechanism to prevent hair strands from intersecting with each other and with other objects in the environment. The rendering part of the algorithm utilizes techniques like strand-based rendering and shadow mapping to produce visually appealing and realistic hair appearance in real-time applications. This approach not only enhances the realism of the hair but also ensures efficient performance, making it suitable for use in video games and virtual reality environments.</p>
+
+<p>In the “ogl.cpp” file, a detailed implementation integrates a 3D head model, sourced from a specific GitHub repository, onto which a custom hair model is superimposed. Initially, the hair appears suspended in mid-air to highlight its dynamic properties. During the demonstration video, gravity is programmatically applied, causing the hair to fall naturally downwards, simulating realistic hair behavior in response to gravitational force. This effect is achieved through modifications to the rendering logic, which not only visually represents the hair’s interaction with gravity but also enhances the overall realism of the simulation. The integration and subsequent manipulation of the hair dynamics are carefully designed to demonstrate the capabilities of the hair simulation framework within a 3D graphical environment.</p>
+
+<p>Each spring type used in the hair physical model:</p>
+<ol>
+  <li>
+<strong>Edge Springs</strong>: These are the fundamental components of the hair simulation, connecting every two neighboring particles to maintain the hair’s desired curve and primary form.</li>
+  <li>
+<strong>Bending Springs</strong>: Positioned to connect every particle to others two edges away, bending springs act as constraints that resist changes in the curvature of the hair, helping to preserve its shape against bending forces.</li>
+  <li>
+<strong>Torsion Springs</strong>: Torsion springs link each particle to others three edges away, providing resistance to twisting motions around the hair strand’s length, thus maintaining the integrity of the hair’s twist along its axis.</li>
+  <li>
+<strong>Tetrahedral Altitude Springs</strong>: Unique to our model, these springs form for every group of four consecutive particles, creating a tetrahedral structure. They exert a repelling force between the opposite edges of the tetrahedron, effectively preventing the collapse of the hair’s volume when compressed.</li>
+</ol>
+
+<p><img src="../assets/img/writeup/spring_model.png" alt="cube-springs" style="display:block; margin-left: auto; margin-right: auto; width:50%;"></p>
+
+<p><strong>Elastic force Mathematical calculation:</strong></p>
+
+<p>In our formulation, hair is modeled as a serial succession of point masses, connected with springs. First, edge springs are between every 2 neighboring particles. Second, bending springs connect every particle to other particles 2 edges away from it. Third, torsion springs connects every particle to other particles 3 edges away from it. Fourth, for every 4 consecutive particles, the above springs form a tetrahedron. Between every pair of opposite edges of the tetrahedron, the distance between the straight lines are calculated, and a spring-like repelling force is exerted on the edges according to the distance.</p>
+
+<p>The elastic force on the spring between 2 particles \(p_1, p_2\) exerted on particle \(p_1\) is</p>
+
+\[F_{12} = k_s \frac{\|p_2 - p_1\| - l_0}{\|p_2 - p_1\|} (p_2 - p_1)\]
+
+<p>where \(k_s\) is the spring constant and \(l_0\) is the rest length. Note that the numerator in the fraction could be negative, in which case the force is in the opposite direction.</p>
+
+<p>The elastic force on the tetrahedral altitude spring between edges \(p_1p_2\) and \(p_3p_4\) exerted on \(p_1p_2\) is</p>
+
+\[F_{12-34} = k_s \frac{\|n\| - l_0}{\|n\|} n\]
+
+<p>where \(n = \frac{(a \times b) \cdot c}{\|a \times b\|^2}\)is the directed distance from edge \(p_1p_2\) to \(p_3p_4\), where \(a = p_2 - p_1\), \(b = p_4 - p_3\), \(c = p_3 - p_1\). \(k_s\)  and \(l_0\) have the same meaning as above.</p>
+
+<p><strong>Challenges:</strong></p>
+
+<p>Some bug we met, then how we solve it?</p>
+
+<ul>
+  <li>Limited computation resource: we didn’t have access to a GPU, so all of the simulations were run on an M1 chip Mac computer. This limits the amount of hair particles we can simulate, leading to a balancing act between hair length, resolution (number of springs), and number of hair strands. To produce a runnable simulation, we had to decrease the amount of hair strands by lowering the mesh resolution of the head, and selecting only a fraction of the head area as hair roots. (hence why or model is balding)</li>
+  <li>Lack of reference for the hair spring parameters: the original paper illustrates the physics behind the mass-spring system that underlies the hair, but provided no reference point for the scale and relative ratio between the spring parameters. These values were determined by trial and error.</li>
+  <li>Collision detection: this was the toughest problem to crack. Each hair particle is under influences of gravity, 4 different spring types, and addition stiction springs with neighboring strands, leading to rather erratic behavior when a particle’s position and velocity are corrected during a collision. A friction component was added to the correction vector at collision time to minimize this effect, but the complex interactions still often make the hair diverge to chaos during simulations. Additionally, each update time step was broken up in two, where the half-velocity and half-position are calculated and used for collision detection instead of the full-step update, effectively “anticipating” collisions ahead to prevent drastic corrections. However, the result is still not as stable as we’d like and the hair particles can still be observed penetrating the head mesh in places with dense vertices (and complex normals) such as the ears and eyes areas. This is an area for future work and improvement.  </li>
+</ul>
+
+<p>Throughout the project, our team learned valuable lessons in computational physics, performance optimization, and interdisciplinary collaboration. We discovered the delicate balance between accuracy and efficiency and the importance of considering the end-user experience when developing simulations.</p>
+
+<h2 id="final-results">Final Results</h2>
+
+<p>In our project’s final deliverable, we have successfully demonstrated a realistic simulation of hair influenced by gravity. The video showcases a model consisting of 500 hair strands(Can be modified), each rendered with high fidelity, gradually moving downwards as gravity takes effect. This visualization not only confirms the functional accuracy of our hair physical model but also highlights the effectiveness of the multi-spring system in providing natural dynamics and movement. Each strand of hair behaves in accordance with the established physical parameters, including elasticity, bending resistance, and volume preservation, which are governed by the meticulously implemented edge, bending, torsion, and tetrahedral altitude springs. The simulation effectively mirrors the natural flow and behavior of hair, offering a compelling visual testament to the robustness and precision of our computational model in replicating complex real-world phenomena.</p>
+
+<p>Image and video here:
+TBD</p>
+
+<h2 id="references">References:</h2>
+<p><a href="https://physbam.stanford.edu/~mlentine/images/hair.pdf" rel="external nofollow noopener" target="_blank">Selle et al., 2008: A Mass Spring Model for Hair Simulation</a></p>
+
+<p><a href="https://nccastaff.bournemouth.ac.uk/jmacey/MastersProject/MSc17/05/1.pdf" rel="external nofollow noopener" target="_blank">Yao Lyu, 2016: Hair Simulation Based on Mass Spring System</a></p>
+
+<h2 id="contributions">Contributions</h2>
+
+<p>Contributions from each team member</p>
+
+<p>Alex: Coding, debugging, and feature implementation. Create the final result demo for our project.</p>
+
+<p>Lihao: Looked for the useful github resources about hair simulation. Set up the environment of our project from github. Write the report draft.</p>
+
+<p>Martin: Help with debugging, and give an outline of the final report, mainly about the interpretation of the work and our code, and the difficulty we have met with, and how we solved the problem.</p>
+
+<p>Zheng: Maintain the website, combine all the pieces (text, picture, video…) together to form a nice and complete final report.</p>
 
 </div>
 
