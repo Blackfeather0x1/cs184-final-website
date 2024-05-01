@@ -95,7 +95,7 @@ Each spring type used in the hair physical model:
 3. **Torsion Springs**: Torsion springs link each particle to others three edges away, providing resistance to twisting motions around the hair strand’s length, thus maintaining the integrity of the hair’s twist along its axis.
 4. **Tetrahedral Altitude Springs**: Unique to our model, these springs form for every group of four consecutive particles, creating a tetrahedral structure. They exert a repelling force between the opposite edges of the tetrahedron, effectively preventing the collapse of the hair’s volume when compressed.
 
-![spring-model](../assets/img/writeup/spring_model.png){:style="display:block; margin-left: auto; margin-right: auto; width:50%;"}
+![spring-model](img/spring_model.png){:style="display:block; margin-left: auto; margin-right: auto; width:50%;"}
 
 **Elastic force Mathematical calculation:**
 
